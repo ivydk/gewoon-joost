@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\SectionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('welcome');
 });
 
-Route::resource('/upload', FileUploadController::class);
-//Route::get('upload', [FileUploadController::class, 'index']);
-//Route::post('store', [FileUploadController::class, 'store']);
+Route::get('/section-form', [SectionsController::class, 'index']);
+Route::post('/store-input-fields', [SectionsController::class, 'store']);
+
