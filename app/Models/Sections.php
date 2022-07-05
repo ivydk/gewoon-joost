@@ -15,7 +15,9 @@ class Sections extends Model
     protected $fillable = [
         'name',
         'deadline',
-        'description'
+        'description',
+        'report_id',
+        'parent_id',
     ];
 
     public function children(): HasMany

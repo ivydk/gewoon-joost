@@ -9,7 +9,7 @@ class Report extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'deadline'];
+    protected $fillable = ['name', 'deadline', 'sections'];
 
     public function sections(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
