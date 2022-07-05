@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\FileUploadController;
-use App\Http\Controllers\SectionsController;
+use App\Http\Controllers\API\SectionsController;
 use Illuminate\Support\Facades\Route;
 
 /*

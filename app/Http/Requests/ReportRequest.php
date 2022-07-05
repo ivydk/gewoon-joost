@@ -27,8 +27,7 @@ class ReportRequest extends FormRequest
             // name = report name
             'name' => ['required', 'string'],
             'deadline' => ['required', 'date'],
-
-//            'sections' => ['required', 'array']
+            'sections' => ['required']
         ];
     }
 }
