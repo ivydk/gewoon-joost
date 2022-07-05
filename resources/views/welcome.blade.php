@@ -48,8 +48,10 @@
 
         $("#dynamic-ar").click(function () {
             ++i;
-            $("#dynamicAddRemove").append('<tr><td><input type="text" name="addMoreInputFields[' + i +
-                '][section]" placeholder="Enter section" class="form-control" /></td><td>' +
+            $("#dynamicAddRemove").append('<tr><td>' +
+                '<input type="text" name="addMoreInputFields[' + i +'][name]" placeholder="Enter Name" class="form-control"/>' +
+                '<input type="text" name="addMoreInputFields[' + i +'][description]" placeholder="Enter Description" class="form-control"/>' +
+                '<input type="date" name="addMoreInputFields[' + i +'][deadline]" placeholder="Enter Deadline" class="form-control"/> </td><td>' +
                 '<button type="button" class="btn btn-outline-danger remove-input-field">Delete</button></td></tr>'
             );
         });

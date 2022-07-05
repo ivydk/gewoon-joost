@@ -38,6 +38,7 @@ class SectionsController extends Controller
         $request->validate([
             'addMoreInputFields.*.section' => 'required'
         ]);
+//        dd($request);
 
         foreach ($request->addMoreInputFields as $key => $value) {
             Sections::create($value);
