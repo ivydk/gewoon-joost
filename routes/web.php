@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//route:
 Route::get('/section-form', [SectionsController::class, 'index']);
 Route::post('/store-input-fields', [SectionsController::class, 'store']);
 
