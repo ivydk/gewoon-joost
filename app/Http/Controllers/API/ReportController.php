@@ -70,6 +70,7 @@ class ReportController extends Controller
         }
     }
 
+
     /**
      * Display the specified resource.
      *

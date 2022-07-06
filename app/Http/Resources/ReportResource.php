@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Sections;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ReportResource extends JsonResource
@@ -14,12 +15,59 @@ class ReportResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+//            'id' => $this->id,
+            'name' => $this->name,
+            'deadline' => $this->deadline,
+            'sections' => $this->getReportSections($request),
+        ];
+    }
 
-//        return [
-//            'name' => $this->name,
-//            'deadline' => $this->deadline,
-//            'sections' => SectionResource::collection($this->section)
-//        ];
+    private function getReportSections($request) {
+        if ($request['sections'] === null) {
+            return null;
+        }
+
+        $returnSections = [];
+
+//        dd($request);
+        foreach($request['sections'] as $section) {
+//            dd($section);
+            $s = [
+                'sections' => $this->getSectionSections($section['sections']),
+                'name' => $section['name'],
+                'deadline' => $section['deadline'],
+                'description' => $section['description']
+            ];
+
+            $returnSections[] = $s;
+        }
+
+        return $returnSections;
+
+    }
+
+    private function getSectionSections($sections) {
+        if ($sections === null) {
+            return null;
+        }
+
+        $returnSections = [];
+
+        foreach($sections as $section) {
+//            dd($section);
+           $s = [
+                'sections' => $this->getSectionSections($section['sections']),
+                'name' => $section['name'],
+                'deadline' => $section['deadline'],
+                'description' => $section['description']
+            ];
+
+            $returnSections[] = $s;
+
+        }
+        return $returnSections;
+
+
     }
 }

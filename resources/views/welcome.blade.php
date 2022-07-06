@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <input type="text" name="addMoreInputFields[0][section]" placeholder="Enter section"
+                            <input type="text" name="addMoreInputFields[0][name]" placeholder="Enter section"
                                    class="form-control"/>
                         </td>
                         <td>
