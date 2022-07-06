@@ -15,11 +15,15 @@ class ReportResource extends JsonResource
      */
     public function toArray($request)
     {
+
+        $section_ids = Sections::where('report_id', $this->id)->pluck('id');
+        $sub_sections_ids = Sections::where('parent_id', $section_ids)->pluck('id');
+
         return [
 //            'id' => $this->id,
             'name' => $this->name,
             'deadline' => $this->deadline,
-            'sections' => $this->getReportSections($request),
+            'sections' => SectionsResource::collection($this->sections),
         ];
     }
 
@@ -30,9 +34,7 @@ class ReportResource extends JsonResource
 
         $returnSections = [];
 
-//        dd($request);
         foreach($request['sections'] as $section) {
-//            dd($section);
             $s = [
                 'name' => $section['name'],
                 'deadline' => $section['deadline'],
@@ -43,6 +45,8 @@ class ReportResource extends JsonResource
 
             $returnSections[] = $s;
         }
+
+        dd($returnSections);
 
         return $returnSections;
 
