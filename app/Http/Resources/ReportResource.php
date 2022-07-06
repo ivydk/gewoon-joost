@@ -34,10 +34,11 @@ class ReportResource extends JsonResource
         foreach($request['sections'] as $section) {
 //            dd($section);
             $s = [
-                'sections' => $this->getSectionSections($section['sections']),
                 'name' => $section['name'],
                 'deadline' => $section['deadline'],
-                'description' => $section['description']
+                'description' => $section['description'],
+                'sections' => $this->getSectionSections($section['sections']),
+
             ];
 
             $returnSections[] = $s;
@@ -57,11 +58,12 @@ class ReportResource extends JsonResource
         foreach($sections as $section) {
 //            dd($section);
            $s = [
-                'sections' => $this->getSectionSections($section['sections']),
                 'name' => $section['name'],
                 'deadline' => $section['deadline'],
-                'description' => $section['description']
-            ];
+                'description' => $section['description'],
+               'sections' => $this->getSectionSections($section['sections']),
+
+           ];
 
             $returnSections[] = $s;
 

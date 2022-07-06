@@ -36,7 +36,9 @@ class SectionsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'addMoreInputFields.*.section' => 'required'
+            'addMoreInputFields.*.name' => 'required',
+            'addMoreInputFields.*.description' => 'present',
+            'addMoreInputFields.*.deadline' => 'present'
         ]);
 //        dd($request);
 
